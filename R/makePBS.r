@@ -3,7 +3,7 @@
 #' @family abysmally documented
 #' @author  unknown, \email{<unknown>@@dfo-mpo.gc.ca}
 #' @export
-makePBS <- function(x,polygon=T,projection="LL") {
+makePBS <- function(x,polygon=T,projection="LL",coords = NULL)  {
 	cat('Polygon or Event Data for PBSmapping\n')
 
 	if(any(names(x) %in% c('lat','lon'))) x <- rename.df(x,n0=c('lon','lat'),n1=c('X','Y'))
@@ -13,6 +13,7 @@ makePBS <- function(x,polygon=T,projection="LL") {
 	if(any(names(x) %in% c('DDLAT','DDLON'))) x <- rename.df(x,n0=c('DDLON','DDLAT'),n1=c('X','Y'))
 	if(any(names(x) %in% c('LAT_DD','LONG_DD'))) x <- rename.df(x,n0=c('LAT_DD','LONG_DD'),n1=c('X','Y'))
 	if(any(names(x) %in% c('LATITUDE','LONGITUDE'))) x <- rename.df(x,n0=c('LONGITUDE','LATITUDE'),n1=c('X','Y'))
+	if(any(names(x) %in% coords)) x <- rename.df(x,n0=coords,n1=c('X','Y'))
 	
 	if(polygon) {
 			x$PID <- 1
