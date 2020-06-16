@@ -9,7 +9,8 @@
 #' @return \code{result}
 #' @author  unknown, \email{<unknown>@@dfo-mpo.gc.ca}
 #' @export
-devianceGLM <- function (x, data, test = "F", digits = 2) {
+devianceGLM <- function (x, data=NULL, test = "F", digits = 2) {
+        if(is.null(data)) data = x$data
     #deviance explained by glm model 
     nexpl <- x$deviance
     tot <- x$null.deviance

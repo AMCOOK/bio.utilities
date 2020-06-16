@@ -42,39 +42,7 @@
           return (DEPTH)
         }
 
-        if (method %in% c("seabird", "unesco") ){
-
-          ## NOTE this method is the same as the above ...
-          
-          # http://www.seabird.com/application_notes/AN69.htm
-          # 
-          # Sea-Bird uses the formula in UNESCO Technical Papers in Marine Science No. 44. 
-          # This is an empirical formula that takes compressibility (that is, density) into account. 
-          # An ocean water column at 0 °C (t = 0) and 35 PSU (s = 35) is assumed.
-          # 
-          # The gravity variation with latitude and pressure is computed as:
-          # 
-          # g (m/sec2) = 9.780318 * [ 1.0 + ( 5.2788x10 -3  + 2.36x10 -5  * x) * x ] + 1.092x10 -6  * p
-          # 
-          # where 
-          # x = [sin (latitude / 57.29578) ] ^2 
-          # p = pressure (decibars)
-          # 
-          # Then, depth is calculated from pressure:
-          # 
-          # depth (meters) = [(((-1.82x10 -15  * p + 2.279x10 -10 ) * p - 2.2512x10 -5 ) * p + 9.72659) * p] / g
-          # 
-          # where 
-          # p = pressure (decibars) 
-          # g = gravity (m/sec2)
-          
-          # x = (sin (latitude / 57.29578) )^2
-          # g = 9.780318 * [ 1.0 + ( 5.2788E-3  + 2.36E-5  * x) * x ] + 1.092E-6  * p
-          # depth = ((((-1.82E-15  * p + 2.279E-10 ) * p - 2.2512E-5 ) * p + 9.72659) * p) / g
-
-
-        }
-
+      
 
       }
 
