@@ -1,8 +1,9 @@
-#' @title U2F
-#' @description exploitation rate to fishing mortality
+#' @title U2F 
+#' @description exploitation rate to fishing mortality or fishing mortality to exploitation if inverse=T
 #' @family abysmally documented
-#' @author  unknown, \email{<unknown>@@dfo-mpo.gc.ca}
+#' @author  unknown
 #' @export
-U2F <- function(U){
-	return(-log(1-U))
+U2F <- function(U,inverse=F){
+	if(!inverse) return(-log(1-U))
+  if(inverse) return(1-exp(-U))
 }
